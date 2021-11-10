@@ -6,7 +6,7 @@
 /*   By: cwhis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:25:40 by cwhis             #+#    #+#             */
-/*   Updated: 2021/11/02 15:29:57 by cwhis            ###   ########.fr       */
+/*   Updated: 2021/11/08 13:49:52 by cwhis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ public:
 	void increment( void ) throw(GradeTooHighException);
 	void decrement( void ) throw(GradeTooLowException);
 	
-	std::string	getName( void ) const;
-	int			getGrade( void ) const;
+	std::string	const	&getName( void ) const;
+	int					getGrade( void ) const;
 
 	void	signForm(Form &f) const;
 
 private:
-	std::string	_name;
+	std::string	const _name;
 	int			_grade;
 };
 

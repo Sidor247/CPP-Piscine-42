@@ -6,7 +6,7 @@
 /*   By: cwhis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 01:44:11 by cwhis             #+#    #+#             */
-/*   Updated: 2021/11/04 15:36:16 by cwhis            ###   ########.fr       */
+/*   Updated: 2021/11/08 13:22:48 by cwhis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main( void )
 	{
 		Bureaucrat	b;
 		std::cout << b << std::endl;
-		ShrubberyCreationForm	f1("overgrown");
+		ShrubberyCreationForm	f1("home");
 		RobotomyRequestForm		f2("plant");
 		PresidentialPardonForm	f3("prisoner");
 		std::cout << f1 << std::endl;
@@ -44,7 +44,7 @@ int	main( void )
 		std::cout << std::endl;
 		Bureaucrat	b("Bob", 60);
 		std::cout << b << std::endl;
-		ShrubberyCreationForm	f1("overgrown");
+		ShrubberyCreationForm	f1("home");
 		RobotomyRequestForm		f2("plant");
 		PresidentialPardonForm	f3("prisoner");
 		std::cout << f1 << std::endl;

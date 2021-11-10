@@ -6,7 +6,7 @@
 /*   By: cwhis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 01:44:46 by cwhis             #+#    #+#             */
-/*   Updated: 2021/11/05 13:32:59 by cwhis            ###   ########.fr       */
+/*   Updated: 2021/11/08 12:56:00 by cwhis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,11 @@ public:
 					throw(GradeTooLowException, FormIsNotSignedException) = 0;
 
 private:
-	std::string	const	_name;
+	const std::string	_name;
+	const int 			_signGrade;
+	const int 			_execGrade;
+
 	std::string			_target;
-	int const			_signGrade;
-	int const			_execGrade;
 	bool				_isSigned;
 };
 

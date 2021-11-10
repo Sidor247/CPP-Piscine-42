@@ -5,32 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwhis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 01:44:11 by cwhis             #+#    #+#             */
-/*   Updated: 2021/11/08 13:40:50 by cwhis            ###   ########.fr       */
+/*   Created: 2021/11/09 22:38:25 by cwhis             #+#    #+#             */
+/*   Updated: 2021/11/09 22:52:46 by cwhis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "Intern.hpp"
+#include "Data.hpp"
 
-int	main( void )
+int	main()
 {
-	Intern	i;
-	Form	*fp;
-
-	fp = i.makeForm("shrubbery creation", "home");
-	delete fp;
-	std::cout << std::endl;
-	fp = i.makeForm("robotomy request", "plant");
-	delete fp;
-	std::cout << std::endl;
-	fp = i.makeForm("presidential pardon", "prisoner");
-	delete fp;
-	std::cout << std::endl;
-	fp = i.makeForm("unknown_form", "unknown_target");
-	return (0);
+	Data		*data_ptr = new Data("data_string", 12341234);
+	uintptr_t	ptr = serialize(data_ptr);
+	Data		*new_data_ptr = deserialize(ptr);
+	std::cout << data_ptr << std::endl;
+	std::cout << new_data_ptr << std::endl;
+	std::cout << new_data_ptr->s << std::endl;
+	std::cout << new_data_ptr->value << std::endl;
 }

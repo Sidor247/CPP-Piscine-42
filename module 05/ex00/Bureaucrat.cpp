@@ -6,7 +6,7 @@
 /*   By: cwhis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:25:34 by cwhis             #+#    #+#             */
-/*   Updated: 2021/11/01 01:41:26 by cwhis            ###   ########.fr       */
+/*   Updated: 2021/11/08 13:48:35 by cwhis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ Bureaucrat	&Bureaucrat::operator=( Bureaucrat const &rhs )
 {
 	if (&rhs == this)
 		return (*this);
-	_name = rhs._name;
 	_grade = rhs._grade;
 	return (*this);
 }
@@ -73,7 +72,7 @@ void Bureaucrat::decrement( void ) throw(Bureaucrat::GradeTooLowException)
 		throw Bureaucrat::GradeTooLowException();
 }
 
-std::string	Bureaucrat::getName( void ) const
+std::string	const &Bureaucrat::getName( void ) const
 {
 	return (_name);
 }

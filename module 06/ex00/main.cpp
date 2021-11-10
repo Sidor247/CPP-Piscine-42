@@ -5,32 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwhis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 01:44:11 by cwhis             #+#    #+#             */
-/*   Updated: 2021/11/08 13:40:50 by cwhis            ###   ########.fr       */
+/*   Created: 2021/11/08 20:41:08 by cwhis             #+#    #+#             */
+/*   Updated: 2021/11/10 12:39:52 by cwhis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "Intern.hpp"
+#include <iostream>
+#include "Convertible.hpp"
 
-int	main( void )
+int	main(int argc, char **argv)
 {
-	Intern	i;
-	Form	*fp;
-
-	fp = i.makeForm("shrubbery creation", "home");
-	delete fp;
-	std::cout << std::endl;
-	fp = i.makeForm("robotomy request", "plant");
-	delete fp;
-	std::cout << std::endl;
-	fp = i.makeForm("presidential pardon", "prisoner");
-	delete fp;
-	std::cout << std::endl;
-	fp = i.makeForm("unknown_form", "unknown_target");
-	return (0);
+	if (argc != 2)
+	{
+		std::cerr << "Invalid number of arguments" << std::endl;
+		return (EXIT_FAILURE);
+	}
+	try
+	{
+		Convertible	c(argv[1]);
+		c.printAll();
+	}
+	catch(...)
+	{
+		std::cerr << "Can't convert given literal" << std::endl;
+		return (EXIT_FAILURE);
+	}
+	return (EXIT_SUCCESS);
 }

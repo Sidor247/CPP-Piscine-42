@@ -6,14 +6,14 @@
 /*   By: cwhis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 01:45:41 by cwhis             #+#    #+#             */
-/*   Updated: 2021/11/04 12:31:33 by cwhis            ###   ########.fr       */
+/*   Updated: 2021/11/08 13:29:49 by cwhis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(): _name("no_name"), _target("empty"),
-	_signGrade(1), _execGrade(1), _isSigned(false)
+Form::Form(): _name("no_name"), _signGrade(1), _execGrade(1),
+	_target("empty"), _isSigned(false) 
 {
 	std::cout << "Form default constructor called" << std::endl;
 }
@@ -21,8 +21,8 @@ Form::Form(): _name("no_name"), _target("empty"),
 Form::Form(std::string const &name, std::string const &target,
 	int const signGrade, int const execGrade)
 	throw(GradeTooHighException, GradeTooLowException):
-	_name(name), _target(target),
-	_signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
+	_name(name), _signGrade(signGrade), _execGrade(execGrade),
+	_target(target), _isSigned(false)
 {
 	std::cout	<< "Form constructor with name " << name
 				<< ", target " << target
@@ -37,9 +37,9 @@ Form::Form(std::string const &name, std::string const &target,
 
 Form::Form(Form const &src):
 	_name(src._name),
-	_target(src._target),
 	_signGrade(src._signGrade),
 	_execGrade(src._execGrade),
+	_target(src._target),
 	_isSigned(src._isSigned)
 {
 	std::cout << "Form copy constructor called" << std::endl;
@@ -116,7 +116,8 @@ const char	*Form::FormIsNotSignedException::what() const throw()
 std::ostream	&operator<<(std::ostream &lhs, Form const &rhs)
 {
 	lhs << "<" << rhs.getName()
-		<< ">, form grade to sign <" << rhs.getSignGrade()
+		<< "> form, target <" << rhs.getTarget()
+		<< ">, grade to sign <" << rhs.getSignGrade()
 		<< ">, grade to execute <" << rhs.getExecGrade()
 		<< ">, is signed <" << rhs.getIsSigned() << ">";
 	return lhs;

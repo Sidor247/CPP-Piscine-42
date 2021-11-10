@@ -6,7 +6,7 @@
 /*   By: cwhis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:25:34 by cwhis             #+#    #+#             */
-/*   Updated: 2021/11/04 12:43:08 by cwhis            ###   ########.fr       */
+/*   Updated: 2021/11/08 13:49:29 by cwhis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ Bureaucrat	&Bureaucrat::operator=( Bureaucrat const &rhs )
 {
 	if (&rhs == this)
 		return (*this);
-	_name = rhs._name;
 	_grade = rhs._grade;
 	return (*this);
 }
@@ -74,7 +73,7 @@ void Bureaucrat::decrement( void ) throw(Bureaucrat::GradeTooLowException)
 		throw Bureaucrat::GradeTooLowException();
 }
 
-std::string	Bureaucrat::getName( void ) const
+std::string	const &Bureaucrat::getName( void ) const
 {
 	return (_name);
 }
@@ -89,6 +88,9 @@ void	Bureaucrat::signForm(Form &f) const
 	try
 	{
 		f.beSigned(*this);
+		std::cout	<< "<" << _name
+					<< "> signs <" << f.getName()
+					<< ">" << std::endl;
 	}
 	catch (std::exception & e)
 	{
@@ -103,10 +105,10 @@ void	Bureaucrat::executeForm(Form const &form) const
 {
 	try
 	{
+		form.execute(*this);
 		std::cout	<< "<" << _name << "> executes <"
 					<< form.getName() << ">"
 					<< std::endl;
-		form.execute(*this);
 	}
 	catch (std::exception &e)
 	{

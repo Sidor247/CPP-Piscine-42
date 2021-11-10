@@ -6,7 +6,7 @@
 /*   By: cwhis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 01:44:46 by cwhis             #+#    #+#             */
-/*   Updated: 2021/11/02 15:29:21 by cwhis            ###   ########.fr       */
+/*   Updated: 2021/11/08 12:50:14 by cwhis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,10 @@ public:
 	void	beSigned(Bureaucrat const &b) throw(GradeTooLowException);
 
 private:
-	std::string	const	_name;
-	int const			_signGrade;
-	int const			_execGrade;
+	const std::string	_name;
+	const int 			_signGrade;
+	const int 			_execGrade;
+	
 	bool				_isSigned;
 
 };

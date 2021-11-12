@@ -6,7 +6,7 @@
 /*   By: cwhis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 23:43:57 by cwhis             #+#    #+#             */
-/*   Updated: 2021/11/12 11:33:40 by cwhis            ###   ########.fr       */
+/*   Updated: 2021/11/12 22:49:16 by cwhis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,8 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;//
-	Array<int> nums(10);
+	Array<int> const nums(10);
 	for (unsigned int i = 0; i < 5; ++i)
 		std::cout << nums[i] << std::endl;
-
     return 0;
 }

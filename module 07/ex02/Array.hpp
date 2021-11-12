@@ -6,7 +6,7 @@
 /*   By: cwhis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 23:48:03 by cwhis             #+#    #+#             */
-/*   Updated: 2021/11/12 11:32:00 by cwhis            ###   ########.fr       */
+/*   Updated: 2021/11/12 22:47:00 by cwhis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ template<typename T>
 class Array
 {
 public:
-	Array<T>(): _arr(new T[0]), _size(0) {}
+	Array(): _arr(new T[0]), _size(0) {}
 
-	Array<T>(unsigned int size): _arr(new T[size]), _size(size) {}
+	Array(unsigned int size): _arr(new T[size]), _size(size) {}
 
-	Array<T>(Array const &src): _arr(new T[src._size]), _size(src._size)
+	Array(Array const &src): _arr(new T[src._size]), _size(src._size)
 	{
 		for (unsigned int i = 0; i < _size; ++i)
 			_arr[i] = src._arr[i];
@@ -31,9 +31,10 @@ public:
 	{
 		if (this == &rhs)
 			return (*this);
+		T *tmp = new T[_size];
 		delete [] _arr;
+		_arr = tmp;
 		_size = rhs._size;
-		_arr = new T[_size];
 		for (unsigned int i = 0; i < _size; ++i)
 			_arr[i] = rhs._arr[i];
 		return (*this);
@@ -58,12 +59,20 @@ public:
 		}
 	};
 
-	T	&operator[](unsigned int i) const throw(OutOfBoundsException)
+	T const &operator[](unsigned int i) const throw(OutOfBoundsException)
 	{
 		if (i >= _size)
 			throw OutOfBoundsException();
 		return (_arr[i]);
 	}
+
+	T	&operator[](unsigned int i) throw(OutOfBoundsException)
+	{
+		if (i >= _size)
+			throw OutOfBoundsException();
+		return (_arr[i]);
+	}
+
 
 private:
 	T				*_arr;

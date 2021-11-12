@@ -6,7 +6,7 @@
 /*   By: cwhis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 02:25:25 by cwhis             #+#    #+#             */
-/*   Updated: 2021/11/11 23:36:29 by cwhis            ###   ########.fr       */
+/*   Updated: 2021/11/12 23:05:46 by cwhis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 
 template<typename T>
-void	print(T &lhs)
+void	print(T const &lhs)
 {
 	std::cout << lhs;
 }
@@ -29,11 +29,6 @@ template<typename T>
 void	dec(T &lhs)
 {
 	--lhs;
-}
-
-void	my_toupper(char &c)
-{
-	c = std::toupper(c);
 }
 
 int	main(void)
